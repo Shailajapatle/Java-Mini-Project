@@ -1,0 +1,51 @@
+Code:
+import java.util.Scanner;
+
+class Student {
+    String name;
+    int m1, m2, m3;
+
+    // Method to calculate average
+    double getAverage() {
+        return (m1 + m2 + m3) / 3.0;
+    }
+
+    // Method to get grade
+    String getGrade(double avg) {
+        if (avg >= 90) return "A";
+        else if (avg >= 75) return "B";
+        else if (avg >= 60) return "C";
+        else if (avg >= 40) return "D";
+        else return "Fail";
+    }
+}
+
+public class GradeSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Student s = new Student();
+
+        System.out.print("Enter Student Name: ");
+        s.name = sc.nextLine();
+
+        System.out.print("Enter Mark 1: ");
+        s.m1 = sc.nextInt();
+
+        System.out.print("Enter Mark 2: ");
+        s.m2 = sc.nextInt();
+
+        System.out.print("Enter Mark 3: ");
+        s.m3 = sc.nextInt();
+
+        double avg = s.getAverage();
+        String grade = s.getGrade(avg);
+
+        System.out.println("\n--- Student Result ---");
+        System.out.println("Name: " + s.name);
+        System.out.println("Average: " + avg);
+        System.out.println("Grade: " + grade);
+
+        sc.close();
+    }
+}
